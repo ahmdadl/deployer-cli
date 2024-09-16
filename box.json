@@ -1,14 +1,7 @@
 {
     "chmod": "0755",
-    "directories": [
-        "app",
-        "bootstrap",
-        "config",
-        "vendor"
-    ],
-    "files": [
-        "composer.json"
-    ],
+    "directories": ["app", "bootstrap", "config", "vendor", "database"],
+    "files": ["composer.json", ".env"],
     "exclude-composer-files": false,
     "compression": "GZ",
     "compactors": [
