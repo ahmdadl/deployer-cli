@@ -2,6 +2,7 @@
 
 namespace App\Commands;
 
+use App\LocalConfig;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Facades\Storage;
 use LaravelZero\Framework\Commands\Command;
@@ -39,20 +40,16 @@ class InitiateCommand extends Command
             $alias = $this->askWithCompletion('Please enter the alias of the app', [$appName], $appName);
         }
 
-        $localFile = Storage::disk('current')->exists('deployer.json');
-        if ($localFile) {
+        /** @var LocalConfig $localConfig */
+        $localConfig = app(LocalConfig::class);
+        if ($localConfig->fileExists && $localConfig->getApps()->isNotEmpty()) {
             $this->error('deployer.json already exists');
             exit(1);
         }
 
-        $contents = [
-            [
-                'name' => $appName,
-                'alias' => $alias,
-            ]
-        ];
-
-        Storage::disk('current')->put('deployer.json', json_encode($contents, JSON_PRETTY_PRINT));
+        $localConfig->defaultApp = $appName;
+        $localConfig->addApp($appName, $alias);
+        $localConfig->save();
 
         render(<<<"HTML"
             <div class="py-1 ml-2">

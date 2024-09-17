@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\LocalConfig;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +12,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->app->singleton(LocalConfig::class, fn() => (new LocalConfig())->load());
     }
 
     /**

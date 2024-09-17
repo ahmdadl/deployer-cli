@@ -1,6 +1,13 @@
-[
-    {
-        "name": "zamil-prod",
-        "alias": "prod"
-    }
-]
+{
+    "default": "zamil-test",
+    "apps": [
+        {
+            "name": "zamilprod",
+            "alias": "prd"
+        },
+        {
+            "name": "zamil-test",
+            "alias": "test"
+        }
+    ]
+}

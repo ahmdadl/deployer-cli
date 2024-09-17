@@ -42,6 +42,9 @@ return [
 
     'env' => 'development',
 
+    'local_file_name' => env('LOCAL_FILE_NAME', 'deployer.json'),
+    'deployer_url' => env('DEPLOYER_URL', 'https://deploy.mentoor.io/deploy'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
