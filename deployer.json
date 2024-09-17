@@ -1,9 +1,0 @@
-{
-    "default": "zamil-backend-testing",
-    "apps": [
-        {
-            "name": "zamil-backend-testing",
-            "alias": "test"
-        }
-    ]
-}
