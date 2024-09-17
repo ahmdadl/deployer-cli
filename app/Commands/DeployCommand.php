@@ -58,7 +58,9 @@ class DeployCommand extends Command
 
         $this->info('Deploying: ' . $appName . ' ........');
 
-        $response = Http::post(config('app.deployer_url') . '/' . $appName);
+        $url = config('app.deployer_url') . '/' . $appName;
+
+        $response = Http::post($url);
 
         render(<<<"HTML"
             <div class="py-1 ml-2">
@@ -66,6 +68,7 @@ class DeployCommand extends Command
                 <br />
                 <ul>
                     <li>Status: <span class="bg-green-700 text-white mb-1">{$response->status()}</span></li>
+                    <li>URL: <span class="bg-green-700 text-white mb-1">{$url}</span></li>
                     <li>Body: <span class="bg-green-700 text-white">{$response->body()}</span></li>
                 </ul>
             </div>

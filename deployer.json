@@ -1,12 +1,8 @@
 {
-    "default": "zamil-test",
+    "default": "zamil-backend-testing",
     "apps": [
         {
-            "name": "zamilprod",
-            "alias": "prd"
-        },
-        {
-            "name": "zamil-test",
+            "name": "zamil-backend-testing",
             "alias": "test"
         }
     ]
