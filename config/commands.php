@@ -1,5 +1,16 @@
 <?php
 
+use App\Commands\InspireCommand;
+use Illuminate\Console\MigrationGeneratorCommand;
+use Illuminate\Database\Console\Factories\FactoryMakeCommand;
+use Illuminate\Database\Console\Migrations\MigrateCommand;
+use Illuminate\Database\Console\Migrations\MigrateMakeCommand;
+use Illuminate\Database\Console\Seeds\SeederMakeCommand;
+use Illuminate\Foundation\Console\ConsoleMakeCommand;
+use Illuminate\Foundation\Console\ModelMakeCommand;
+use LaravelZero\Framework\Commands\MakeCommand;
+use LaravelZero\Framework\Commands\TestMakeCommand;
+
 return [
 
     /*
@@ -57,12 +68,18 @@ return [
     'hidden' => [
         NunoMaduro\LaravelConsoleSummary\SummaryCommand::class,
         Symfony\Component\Console\Command\DumpCompletionCommand::class,
-        Symfony\Component\Console\Command\HelpCommand::class,
+        // Symfony\Component\Console\Command\HelpCommand::class,
         Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         Illuminate\Console\Scheduling\ScheduleListCommand::class,
         Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         Illuminate\Foundation\Console\VendorPublishCommand::class,
         LaravelZero\Framework\Commands\StubPublishCommand::class,
+
+        ConsoleMakeCommand::class,
+        ModelMakeCommand::class,
+        TestMakeCommand::class,
+        MakeCommand::class,
+        InspireCommand::class,
     ],
 
     /*
