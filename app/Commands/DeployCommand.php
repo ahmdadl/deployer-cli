@@ -60,7 +60,11 @@ class DeployCommand extends Command
 
         $url = config('app.deployer_url') . '/' . $appName;
 
-        $response = Http::post($url);
+        $response = Http::get($url);
+
+        $message = json_decode($response->body(), true)['message'];
+
+        $this->notify("Deployed to {$appName} successfully", $message);
 
         render(<<<"HTML"
             <div class="py-1 ml-2">
@@ -69,6 +73,7 @@ class DeployCommand extends Command
                 <ul>
                     <li>Status: <span class="bg-green-700 text-white mb-1">{$response->status()}</span></li>
                     <li>URL: <span class="bg-green-700 text-white mb-1">{$url}</span></li>
+                    <li>Message: <span class="bg-green-700 text-white">{$message}</span></li>
                     <li>Body: <span class="bg-green-700 text-white">{$response->body()}</span></li>
                 </ul>
             </div>
