@@ -4,12 +4,10 @@ an cli application to integrate with a custom nodejs deployer build with laravel
 
 ## Installation
 
--   Download [deployer-cli.phar](https://github.com/ahmdadl/deployer-cli/raw/main/builds/deployer-cli) file and place in directory that visible to $PATH
+-   Download [deployer-cli.phar](https://github.com/ahmdadl/deployer-cli/raw/main/builds/deployer-cli) file and place in directory lets say C:\Common
 
-```
-Bonus: Add an alias to deployer-cli
-and make it something easier like "de"
-```
+-   add an alias in your terminal to this file
+    alias deployer=php C:\Common\deployer-cli $\*
 
 ```
 In These docs we will use deployer as an alias to deployer-cli
@@ -20,10 +18,10 @@ In These docs we will use deployer as an alias to deployer-cli
 -   init: Initialize deployer in current project
 
 ```bash
-deployer init
+deployer app:init
 
 NonInteractive:
-    deployer init {app?} {alias?}
+    deployer app:init {app?} {alias?}
 
 Options:
     {app? : name of the repo in deployer config file}
@@ -51,7 +49,7 @@ Options:
 -   deploy: Deploy app to the deployer url
 
 ```bash
-deployer deploy test-app
+deployer app:deploy test-app
 
 Args:
     {appName?: app name or alias name}
