@@ -4,7 +4,7 @@ an cli application to integrate with a custom nodejs deployer build with laravel
 
 ## Installation
 
--   Download [deployer-cli.phar](./builds/deployer-cli.phar) file and place in directory that visible to $PATH
+-   Download [deployer-cli.phar](https://github.com/ahmdadl/deployer-cli/raw/main/builds/deployer-cli) file and place in directory that visible to $PATH
 
 ```
 Bonus: Add an alias to deployer-cli
